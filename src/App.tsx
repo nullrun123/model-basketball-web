@@ -9,6 +9,7 @@ import gsap from  'gsap';
 import { ScrollTrigger } from 'gsap/all';
 gsap.registerPlugin(ScrollTrigger);
 import { useGSAP } from '@gsap/react'
+import History from './components/History'
 const LoadPage = ()=>{
 
   
@@ -49,7 +50,7 @@ function App() {
           console.log(progress)
           if(progress > 0.3 && progress <= 0.8){
           setScaleBas(1.3);
-          }else if(progress > 1){
+          }else if(progress >= 0.8){
             setScaleBas(2);
           }else{
             setScaleBas(1.8);
@@ -68,7 +69,7 @@ function App() {
       
      })
       tl.to(basRef.current,{
-      x:'30%',
+      x:'40%',
       y: ()=> window.innerHeight*0.001,
       duration:1,
     
@@ -94,17 +95,18 @@ function App() {
    <ReactLenis root >
     <div ref={containerRef} className='main-box relative h-full w-full'>
        <Hero/>
-    <div ref={basRef}  className='fixed top-0 left-0 w-screen border-2 border-l-pink-200 h-screen'>
+    {/* <div ref={basRef}  className='fixed top-0 left-0 w-screen border-2 border-l-pink-200 h-screen'>
       <Canvas>
         <Suspense fallback={<LoadPage/>}>
               <ModelSet scaleProps={scaleBas}/>
         </Suspense>
       
       </Canvas>
-    </div>
+    </div> */}
     <About/>
     <div className='h-[100vh] w-screen border-2 border-blue-400'></div>
     </div>
+    <History/>
    
    </ReactLenis>
   )

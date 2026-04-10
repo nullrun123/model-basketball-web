@@ -34,5 +34,22 @@
 }
 
 @utility flex-center {
-  @apply flex justify-center items-center
+  @apply flex items-center justify-center;
+}
+
+@utility flex-between {
+  @apply flex items-center justify-between;
+}
+
+@utility col-center {
+  @apply flex flex-col items-center justify-center;
+}
+
+@utility abs-center {
+  @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+}
+
+
+@utility small-medium {
+  @apply font-medium text-xs;
 }
