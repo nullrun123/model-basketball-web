@@ -87,18 +87,15 @@ function History() {
             visibility:"visible"
     
 }
-
-
-
-
 )
 
         
     })
   return (
    <>
-    <div ref={containerRef} className='relative min-h-screen w-screen flex-center'>
+    <div ref={containerRef} className='min-h-screen w-screen flex-center'>
 
+    <div className='history relative flex-center h-screen w-full'>
             <div className='pic-bas-1 abs-center'>
                 <img src="sp1894-b.png" alt="sp1894-b" />
             </div>
@@ -112,6 +109,8 @@ function History() {
             <div className='pic-bas-4 abs-center'>
                 <img src="sp2025-b.png" alt="sp2025-b" />
             </div>
+    </div>
+        
     </div>
    </>
   )

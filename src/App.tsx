@@ -10,6 +10,7 @@ import { ScrollTrigger } from 'gsap/all';
 gsap.registerPlugin(ScrollTrigger);
 import { useGSAP } from '@gsap/react'
 import History from './components/History'
+import TextAnim from './components/TextAnim'
 const LoadPage = ()=>{
 
   
@@ -93,7 +94,9 @@ function App() {
    
   return (
    <ReactLenis root >
+    <TextAnim/>
     <div ref={containerRef} className='main-box relative h-full w-full'>
+      
        <Hero/>
     {/* <div ref={basRef}  className='fixed top-0 left-0 w-screen border-2 border-l-pink-200 h-screen'>
       <Canvas>

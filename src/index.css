@@ -53,3 +53,33 @@
 @utility small-medium {
   @apply font-medium text-xs;
 }
+
+
+.history img{
+  width: 450px;
+  height: 450px;
+  object-fit: cover;
+}
+
+.block-line-wrapper {
+  position: relative;
+  overflow: hidden; /* เพิ่มบรรทัดนี้ */
+  display: inline-block; /* เปลี่ยนจาก block */
+  width: max-content;
+}
+
+.block-line {
+  position: relative;
+  display: inline-block; /* เปลี่ยนจาก block */
+}
+
+.block-revealer {
+  position: absolute; /* เปลี่ยนจาก relative */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  will-change: transform;
+  z-index: 1;
+}
