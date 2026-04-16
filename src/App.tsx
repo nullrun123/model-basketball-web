@@ -2,15 +2,12 @@ import React, { Suspense, useEffect, useRef, useState } from 'react'
 import ReactLenis from 'lenis/react'
 import Hero from './components/Hero'
 import About from './components/About'
-import { Canvas } from '@react-three/fiber'
-import ModelSet from './model/modelSet'
 import { Html, useProgress } from '@react-three/drei'
 import gsap from  'gsap';
 import { ScrollTrigger } from 'gsap/all';
 gsap.registerPlugin(ScrollTrigger);
 import { useGSAP } from '@gsap/react'
 import History from './components/History'
-import TextAnim from './components/TextAnim'
 const LoadPage = ()=>{
 
   
@@ -48,7 +45,7 @@ function App() {
         invalidateOnRefresh: true,
         onUpdate:(self)=>{
           const progress = self.progress;
-          console.log(progress)
+          // console.log(progress)
           if(progress > 0.3 && progress <= 0.8){
           setScaleBas(1.3);
           }else if(progress >= 0.8){
@@ -94,7 +91,7 @@ function App() {
    
   return (
    <ReactLenis root >
-    <TextAnim/>
+    {/* <TextAnim/> */}
     <div ref={containerRef} className='main-box relative h-full w-full'>
       
        <Hero/>

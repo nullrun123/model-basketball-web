@@ -46,10 +46,12 @@
 }
 
 @utility abs-center {
-  @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+  @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20;
 }
 
-
+@utility abs-center-bottom{
+  @apply absolute bottom-10 left-1/2 -translate-x-1/2 z-40;
+}
 @utility small-medium {
   @apply font-medium text-xs;
 }
