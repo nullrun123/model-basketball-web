@@ -8,6 +8,7 @@ import { ScrollTrigger } from 'gsap/all';
 gsap.registerPlugin(ScrollTrigger);
 import { useGSAP } from '@gsap/react'
 import History from './components/History'
+import Contact from './components/contact'
 const LoadPage = ()=>{
 
   
@@ -91,7 +92,7 @@ function App() {
    
   return (
    <ReactLenis root >
-    {/* <TextAnim/> */}
+  
     <div ref={containerRef} className='main-box relative h-full w-full'>
       
        <Hero/>
@@ -107,6 +108,7 @@ function App() {
     <div className='h-[100vh] w-screen border-2 border-blue-400'></div>
     </div>
     <History/>
+    <Contact/>
    
    </ReactLenis>
   )

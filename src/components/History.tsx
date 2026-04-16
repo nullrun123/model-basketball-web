@@ -9,6 +9,12 @@ function History() {
     const containerRef= useRef(null);
     useGSAP(()=>{
 
+
+        gsap.set(containerRef.current,{
+        clipPath: "circle(0% at 50% 50%)",
+
+
+    })
         const splits: SplitText[] = [];
         document.querySelectorAll(".hist-title").forEach((el) => {
             splits.push(new SplitText(el, { type: "lines" }));
@@ -22,7 +28,7 @@ function History() {
             scrollTrigger:{
                 trigger:containerRef.current,
                 start:"center center",
-                end:"+=450%",
+                end:"+=500%",
                 scrub:1,
                 pin:true,
                 pinSpacing:true,
@@ -58,12 +64,23 @@ function History() {
       .from(".hist-4 .hist-title ", { opacity: 0, y: 20, stagger: 0.3, duration: 1 })
       .from(".hist-4 .hist-about", { opacity: 0, y: 20, stagger: 0.2, duration: 1 }, "-=0.5")
 
+    
+     tl.from(containerRef.current,{
+         clipPath: "circle(100% at 50% 50%)",
+         duration:4.5,
+
+        ease: "power1.inOut",
+    })
+    .to({},{
+        duration:2,
+    })
+
     return () => splits.forEach(s => s.revert());
 },{scope:containerRef})
 
   return (
    <>
-    <div ref={containerRef} className='min-h-screen w-screen flex-center'>
+    <div ref={containerRef} className='min-h-screen w-screen flex-center bg-bg'>
 
     <div className=' relative flex-center h-screen w-full'>
             {

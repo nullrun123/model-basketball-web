@@ -17,7 +17,7 @@
 
 @layer base {
   body {
-    @apply  bg-bg text-black font-body text-lg overflow-x-clip;
+    @apply  bg-white text-black font-body text-lg overflow-x-clip;
   }
   h2 {
     @apply font-semibold text-7xl;
