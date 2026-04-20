@@ -9,6 +9,8 @@ gsap.registerPlugin(ScrollTrigger);
 import { useGSAP } from '@gsap/react'
 import History from './components/History'
 import Contact from './components/contact'
+import SignatureBlock from './components/SignatureBlock'
+
 const LoadPage = ()=>{
 
   
@@ -105,10 +107,15 @@ function App() {
       </Canvas>
     </div> */}
     <About/>
-    <div className='h-[100vh] w-screen border-2 border-blue-400'></div>
+   
     </div>
-    <History/>
-    <Contact/>
+      <History/>
+      {/* <div className='h-full w-full bg-amber-200'></div> */}
+      <SignatureBlock/>
+      <Contact/>
+    
+    
+  
    
    </ReactLenis>
   )

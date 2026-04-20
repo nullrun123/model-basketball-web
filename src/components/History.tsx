@@ -4,17 +4,19 @@ import { ScrollTrigger , SplitText} from 'gsap/all';
 import { useGSAP } from "@gsap/react";
 
 import { Historydetail } from '../utils/content';
+import Contact from './contact';
 gsap.registerPlugin(ScrollTrigger,SplitText);
 function History() {
     const containerRef= useRef(null);
+    const circleRef = useRef(null);
     useGSAP(()=>{
 
 
-        gsap.set(containerRef.current,{
-        clipPath: "circle(0% at 50% 50%)",
+    //     gsap.set(containerRef.current,{
+    //     clipPath: "circle(0% at 50% 50%)",
 
 
-    })
+    // })
         const splits: SplitText[] = [];
         document.querySelectorAll(".hist-title").forEach((el) => {
             splits.push(new SplitText(el, { type: "lines" }));
@@ -28,7 +30,7 @@ function History() {
             scrollTrigger:{
                 trigger:containerRef.current,
                 start:"center center",
-                end:"+=500%",
+                end:"+=700%",
                 scrub:1,
                 pin:true,
                 pinSpacing:true,
@@ -65,15 +67,26 @@ function History() {
       .from(".hist-4 .hist-about", { opacity: 0, y: 20, stagger: 0.2, duration: 1 }, "-=0.5")
 
     
-     tl.from(containerRef.current,{
-         clipPath: "circle(100% at 50% 50%)",
-         duration:4.5,
+    .to({},
+        {
+            duration:1,
+        }
+    )
 
-        ease: "power1.inOut",
+
+    gsap.set(circleRef.current,{
+      clipPath:"circle(6% at 50% 50%)",
     })
-    .to({},{
-        duration:2,
+
+    tl.from(circleRef.current,{
+      y:"100%",
+      duration:2,
     })
+    tl.to(circleRef.current,{
+       clipPath:"circle(100% at 50% 50%)",
+      duration:2,
+    })
+
 
     return () => splits.forEach(s => s.revert());
 },{scope:containerRef})
@@ -93,10 +106,13 @@ function History() {
                     <div className='image-section abs-center'>
                         <img src={image} alt={`history-${index + 1}`} />
                     </div>
+
                 </div>
                 ))
             }
     </div>
+    
+          <div ref={circleRef} className='abs-center z-100 h-screen w-screen bg-white'></div>
     </div>
    </>
   )

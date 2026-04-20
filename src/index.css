@@ -1,10 +1,35 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: Nabla;
+  src: url('/fonts/Nabla-Regular-VariableFont_EDPT\,EHLT.ttf');
+}
 
+
+@font-face {
+  font-family: Playfair;
+  src: url('/fonts/Playfair-VariableFont_opsz\,wdth\,wght.ttf');
+}
+
+@font-face {
+  font-family: Inter;
+  src: url('/fonts/Inter-VariableFont_opsz\,wght.ttf');
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: FreshMan;
+  src: url('/fonts/Freshman.ttf');
+  font-style: normal;
+}
 
 @theme {
-  --font-body: "Inter", sans-serif;
-  --font-accent: "Caveat", sans-serif;
+  --font-nabla: Nabla,sans-serif;
+  --font-playfair: Playfair,sans-serif;
+  --font-freshMan: FreshMan,sans-serif;
+
+  --font-body: Inter, sans-serif;
   --color-beige: #F5F0E4;
   --color-black: #2c2c2c;
   --color-bg: #141008;
@@ -13,11 +38,28 @@
   --color-blue: #489CD3;
   --color-yellow: #FDD326;
   --color-green: #9D9C3D;
+  --color-gold: #FFD700;
 }
+body{
+  /* font-family: var(--font-playfair); */
+  font-family:var(--font-body);
+}
+
+.gold{
+  color: var(--color-gold);
+  font-family: var(--font-playfair);
+}
+.freshman{
+  font-family: var(--font-freshMan);
+  
+}
+
+
+
 
 @layer base {
   body {
-    @apply  bg-white text-black font-body text-lg overflow-x-clip;
+    @apply  bg-white text-black font-body text-lg overflow-x-clip ;
   }
   h2 {
     @apply font-semibold text-7xl;
@@ -35,6 +77,11 @@
 
 @utility flex-center {
   @apply flex items-center justify-center;
+}
+
+
+@utility flex-top {
+  @apply flex items-start justify-center;
 }
 
 @utility flex-between {
