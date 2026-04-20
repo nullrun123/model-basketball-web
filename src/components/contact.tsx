@@ -17,12 +17,18 @@ function Contact() {
       <div className='w-[40%] h-full border-2 border-blue'>
          <img className='w-full h-full object-contain' src="bas-shadow.png" alt="bas-shadow" />
       </div>
-      <div className='contact border-2 h-full w-full p-10 border-yellow flex justify-center'>
-        <div className='bg-red-100 w-full h-full rounded-2xl flex-top p-2'>
-            <div className=''>
-              <h1 className='text-6xl freshman'>SPAIDING</h1>
+      <div className='contact border-2 h-full w-full p-10 border-yellow flex justify-center  '>
+        <div className='bg-red-100 w-full h-full rounded-2xl flex-top flex-col p-16 gap-5'>
+            <div className='text-center'>
+              <h1 className='text-5xl freshman'>CONTACT <br /> SPALDING</h1>
             </div>
-            <div ></div>
+            <p className='text-md'>Have a question about our basketballs, gear, or NBA products? Our team is ready to assist you </p>
+
+            <div className='w-full h-[35px] flex-center gap-6'>
+              <input className='p-4 w-full h-full bg-white rounded-md ' type="text" />
+
+              <button className='w-1/2 h-full rounded-md bg-white hover:bg-gray-200'>Subsc</button>
+            </div>
         </div>
       </div>
     </div>

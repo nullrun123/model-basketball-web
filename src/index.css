@@ -81,7 +81,7 @@ body{
 
 
 @utility flex-top {
-  @apply flex items-start justify-center;
+  @apply flex items-center justify-start;
 }
 
 @utility flex-between {
