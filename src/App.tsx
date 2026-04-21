@@ -95,7 +95,7 @@ function App() {
   return (
    <ReactLenis root >
   
-    <div ref={containerRef} className='main-box relative h-full w-full'>
+    <div ref={containerRef} className='body main-box relative h-full w-full'>
       
        <Hero/>
     {/* <div ref={basRef}  className='fixed top-0 left-0 w-screen border-2 border-l-pink-200 h-screen'>

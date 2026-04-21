@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap';
 import { ScrollTrigger , SplitText} from 'gsap/all';
 import { useGSAP } from "@gsap/react";
-function Marquee() {
+function Marquee({isLeft}) {
   const tickerRef = useRef<HTMLDivElement>(null);
   const animationsRef = useRef<gsap.core.Tween[]>([]);
 
@@ -21,12 +21,13 @@ function Marquee() {
 
         const textEle = inner?.querySelectorAll(".ticker-text");    
         textEle.forEach((ele)=>{
-           const anima =  gsap.to(ele,{
-                 x:`-=100%`,
+            const anima =  (isLeft ? gsap.to : gsap.from)(ele,{
+                 x:"-=100%",
                 duration:20,
                 ease:'linear',
                 repeat:-1,
             })
+           
             animationsRef.current.push(anima);
         })
     },{scope:tickerRef})

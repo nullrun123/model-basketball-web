@@ -4,7 +4,7 @@ import { ScrollTrigger , SplitText} from 'gsap/all';
 import { useGSAP } from "@gsap/react";
 
 import { Historydetail } from '../utils/content';
-import Contact from './contact';
+
 gsap.registerPlugin(ScrollTrigger,SplitText);
 function History() {
     const containerRef= useRef(null);
@@ -46,20 +46,26 @@ function History() {
 
 
     tl.from(".hist-1 .hist-title ", { opacity: 0, y: 20, stagger: 0.3, duration: 1 })
-      .from(".hist-1 .hist-about ", { opacity: 0, y: 20, stagger: 0.2, duration: 1 }, "-=0.5")
+      .from(".hist-1 .hist-about ", { opacity: 0, y: 20, stagger: 0.2, duration: 1 }, "-=0.5")      
       .to(".hist-1 img", { x: "-20%", opacity: 0, duration: 1, delay: 2 })
+      .to(".hist-1 .hist-title ", { opacity: 0, y: 20, stagger: 0.3, duration: 1 })
+      .to(".hist-1 .hist-about ", { opacity: 0, y: 20, stagger: 0.2, duration: 1 }, "-=0.5")      
       .to(".hist-1", { visibility: "hidden" })
 
       .fromTo(".hist-2 img", { opacity: 0 }, { opacity: 1, duration: 1, visibility: "visible" })
       .from(".hist-2 .hist-title ", { opacity: 0, y: 20, stagger: 0.3, duration: 1 })
       .from(".hist-2 .hist-about ", { opacity: 0, y: 20, stagger: 0.2, duration: 1 }, "-=0.5")
       .to(".hist-2 img", { x: "-20%", opacity: 0, duration: 1, delay: 2 })
+      .to(".hist-2 .hist-title ", { opacity: 0, y: 20, stagger: 0.3, duration: 1 })
+      .to(".hist-2 .hist-about ", { opacity: 0, y: 20, stagger: 0.2, duration: 1 }, "-=0.5")
       .to(".hist-2", { visibility: "hidden" })
 
       .fromTo(".hist-3 img", { opacity: 0 }, { opacity: 1, duration: 1, visibility: "visible" })
       .from(".hist-3 .hist-title ", { opacity: 0, y: 20, stagger: 0.3, duration: 1 })
       .from(".hist-3 .hist-about ", { opacity: 0, y: 20, stagger: 0.2, duration: 1 }, "-=0.5")
       .to(".hist-3 img", { x: "-20%", opacity: 0, duration: 1, delay: 2 })
+      .to(".hist-3 .hist-title ", { opacity: 0, y: 20, stagger: 0.3, duration: 1 })
+      .to(".hist-3 .hist-about ", { opacity: 0, y: 20, stagger: 0.2, duration: 1 }, "-=0.5")
       .to(".hist-3", { visibility: "hidden" })
 
       .fromTo(".hist-4 img", { opacity: 0 }, { opacity: 1, duration: 1, visibility: "visible" })
@@ -99,13 +105,14 @@ function History() {
             {
                 Historydetail.map(({title,story,image},index)=>(
                 <div key={index} className={`history hist-${index + 1} w-full h-full`}>
-                    <div className='text-wrapper text-white'>
-                        <h1 className='hist-title text-5xl abs-center top-20'>{title}</h1>
-                        <p className='hist-about abs-center-bottom'>{story}</p>
+                    <div className='text-wrapper text-white '>
+                        <h1 className='hist-title text-5xl abs-center top-20  '>{title}</h1>
+                        <div className='image-section abs-center flex-center w-full'>
+                            <img className='w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl h-auto' src={image} alt={`history-${index + 1}`} />
+                        </div>
+                        <p className='hist-about abs-center-bottom w-full flex-center p-5'>{story}</p>
                     </div>
-                    <div className='image-section abs-center'>
-                        <img src={image} alt={`history-${index + 1}`} />
-                    </div>
+                    
 
                 </div>
                 ))

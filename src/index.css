@@ -9,6 +9,7 @@
 @font-face {
   font-family: Playfair;
   src: url('/fonts/Playfair-VariableFont_opsz\,wdth\,wght.ttf');
+  font-weight: 400 900;
 }
 
 @font-face {
@@ -33,16 +34,17 @@
   --color-beige: #F5F0E4;
   --color-black: #2c2c2c;
   --color-bg: #141008;
+  --color-orange:#FF9119;
   --color-brown: #571F01;
-  --color-orange: #FF6B57;
   --color-blue: #489CD3;
   --color-yellow: #FDD326;
   --color-green: #9D9C3D;
   --color-gold: #FFD700;
 }
 body{
-  /* font-family: var(--font-playfair); */
-  font-family:var(--font-body);
+  font-family: var(--font-playfair);
+
+
 }
 
 .gold{
@@ -52,6 +54,9 @@ body{
 .freshman{
   font-family: var(--font-freshMan);
   
+}
+.text-contact{
+  color: var(--color-orange);
 }
 
 
@@ -104,11 +109,11 @@ body{
 }
 
 
-.history img{
+/* .history img{
   width: 450px;
   height: 450px;
   object-fit: cover;
-}
+} */
 
 .block-line-wrapper {
   position: relative;
@@ -131,4 +136,31 @@ body{
   pointer-events: none;
   will-change: transform;
   z-index: 1;
+}
+
+#h1-anim2 span{
+   background: linear-gradient(
+        to right,
+        #eda323 20%,
+        #ffe802 30%,
+        #ffb400 70%,
+        #f4cd2a 80%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* text-fill-color: transparent; */
+    background-size: 500% auto;
+    animation: textShine 7s ease-in-out infinite alternate;
+}
+@keyframes textShine {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
