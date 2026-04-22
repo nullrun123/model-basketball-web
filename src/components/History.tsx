@@ -101,12 +101,12 @@ function History() {
    <>
     <div ref={containerRef} className='min-h-screen w-screen flex-center bg-bg'>
 
-    <div className=' relative flex-center h-screen w-full'>
+    <div className=' relative flex-center h-screen w-full p-6'>
             {
                 Historydetail.map(({title,story,image},index)=>(
                 <div key={index} className={`history hist-${index + 1} w-full h-full`}>
-                    <div className='text-wrapper text-white '>
-                        <h1 className='hist-title text-5xl abs-center top-20  '>{title}</h1>
+                    <div className='text-wrapper text-white'>
+                        <h1 className='w-screen flex-center hist-title text-3xl md:text-5xl abs-center top-15 text-center '>{title}</h1>
                         <div className='image-section abs-center flex-center w-full'>
                             <img className='w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl h-auto' src={image} alt={`history-${index + 1}`} />
                         </div>

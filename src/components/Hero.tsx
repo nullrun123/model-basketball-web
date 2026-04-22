@@ -35,10 +35,10 @@ function Hero() {
     })
   return (
     <>  
-    <div className='inner-container border-7 border-amber-50 h-[100vh] flex-center bg-bg'>
+    <div className='inner-container h-[100vh] flex-center bg-bg'>
         <div className='t absolute top-30 text-center text-white space-y-2'> 
-            <h1 className='text-8xl '>SPALDING</h1>
-            <p className='text-2xl'>Basketball all time</p>
+            <h1 className='text-5xl md:text-8xl '>SPALDING</h1>
+            <p className='text-lg md:text-2xl'>Basketball all time</p>
         </div>
     </div>
     </>

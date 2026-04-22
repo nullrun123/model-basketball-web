@@ -10,7 +10,10 @@ import { useGSAP } from '@gsap/react'
 import History from './components/History'
 import Contact from './components/contact'
 import SignatureBlock from './components/SignatureBlock'
-
+import { Canvas } from '@react-three/fiber'
+import ModelSet from './model/modelSet'
+import { useMediaQuery } from 'react-responsive'
+import VideoBas from './components/VideoBas'
 const LoadPage = ()=>{
 
   
@@ -28,33 +31,32 @@ const LoadPage = ()=>{
 
 
 function App() {
+  const isMoblie = useMediaQuery({maxWidth:768})
   const basRef = useRef(null);
   const containerRef = useRef(null);
   const [scaleBas, setScaleBas] = useState<Number>(1.8);
   
   useGSAP(()=>{
-
     gsap.set(basRef.current, { 
-    y: 280, 
+    y: (isMoblie ? 140 : 280), 
     x: 0 
   });
+   if(isMoblie) return;
      const tl = gsap.timeline({
       scrollTrigger:{
-        trigger:'.main-box',
+        trigger:containerRef.current,
         start:"top top",
-        end: "bottom bottom",
+        end: "+=70% center",
         markers:true,
         scrub: true,
         invalidateOnRefresh: true,
         onUpdate:(self)=>{
           const progress = self.progress;
-          // console.log(progress)
-          if(progress > 0.3 && progress <= 0.8){
-          setScaleBas(1.3);
-          }else if(progress >= 0.8){
-            setScaleBas(2);
+         
+          if(progress > 0.7){
+          setScaleBas(1.4);
           }else{
-            setScaleBas(1.8);
+            setScaleBas(isMoblie ? 1.2 : 1.8);
           }
           
         }
@@ -65,52 +67,57 @@ function App() {
 
      tl.to(basRef.current,{
       x:'-30%',
-      y:()=> window.innerHeight*0.04,
-      duration:1,
-      
+      y:'100%',
+      duration:5,
      })
-      tl.to(basRef.current,{
-      x:'40%',
-      y: ()=> window.innerHeight*0.001,
-      duration:1,
+  //     tl.to(basRef.current,{
+  //     x:'40%',
+  //     y: ()=> window.innerHeight*0.001,
+  //     duration:1,
     
-  })
+  // })
 
  
+   return () => {
+    tl.kill(); // ทำความสะอาด timeline เก่า
+  };
+  }, { scope: containerRef ,dependencies: [isMoblie]}); 
 
-   },{scope:containerRef}
-  )
 
   
   useEffect(()=>{
+      if(isMoblie){
+      setScaleBas(1.15);
+      }else{
+        setScaleBas(1.75);
+      }
      const handleResize = () => {
       ScrollTrigger.refresh();  // 👈 คำนวณใหม่ทุกครั้งที่ resize
     };
 
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  },[])
+  },[isMoblie])
 
    
   return (
-   <ReactLenis root >
-  
-    <div ref={containerRef} className='body main-box relative h-full w-full'>
-      
+   <ReactLenis root className='flex flex-col h-full w-full' >
+      {/* <div ref={containerRef} className='body main-box relative h-full w-full border-2 border-amber-400'>
        <Hero/>
-    {/* <div ref={basRef}  className='fixed top-0 left-0 w-screen border-2 border-l-pink-200 h-screen'>
-      <Canvas>
+    <div ref={basRef}  className='absolute  top-0 left-0 border-2 border-l-pink-200 h-screen w-screen flex-center'>
+      <Canvas >
         <Suspense fallback={<LoadPage/>}>
               <ModelSet scaleProps={scaleBas}/>
         </Suspense>
-      
       </Canvas>
-    </div> */}
-    <About/>
-   
     </div>
-      <History/>
-      {/* <div className='h-full w-full bg-amber-200'></div> */}
+    <About/>
+    </div>
+
+         
+      <History/> */}
+      <VideoBas/>
+       <div className='h-screen w-screen bg-blue-600'>dfsffw</div>
       <SignatureBlock/>
       <Contact/>
     
