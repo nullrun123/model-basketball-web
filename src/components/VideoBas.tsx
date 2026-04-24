@@ -32,7 +32,7 @@ function VideoBas() {
 useEffect(() => {
   if (!boxArrowRef.current) return;
 
-  const arrows = gsap.utils.toArray(
+  const arrows = gsap.utils.toArray<SVGPathElement>(
     boxArrowRef.current.querySelectorAll(".path-arrow")
   );
 
@@ -61,6 +61,7 @@ useEffect(() => {
 
 
   useGSAP(()=>{
+    
     const tl = gsap.timeline({
       scrollTrigger:{
         trigger:containerRef.current,

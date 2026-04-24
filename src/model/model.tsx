@@ -13,7 +13,8 @@ export function Model({props,scale=1.8,targetscale}:ModelProps) {
 
 
   useGSAP(()=>{
-      gsap.to(modelRef.current.scale,{
+    if (!modelRef.current) return; 
+    gsap.to(modelRef.current.scale,{
         x:targetscale,
         y:targetscale,
         z:targetscale,
@@ -26,7 +27,7 @@ export function Model({props,scale=1.8,targetscale}:ModelProps) {
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.defaultMaterial.geometry}
+          geometry={(nodes.defaultMaterial as any).geometry}
           material={materials.None}
           rotation={[Math.PI / 2, 0, 0]}
         />
