@@ -19,7 +19,7 @@ function VideoBas() {
     const width = window.innerWidth;
 
     const minScale = 0.8;
-    const maxScale = 1.4;
+    const maxScale = 1.2;
     const minWidth = 320;
     const maxWidth = 1920;
 
@@ -84,7 +84,8 @@ useEffect(() => {
     })
 
     tl.set(videoRef.current,{
-      visibility:"hidden",
+      // visibility:"hidden",
+      opacity:0,
     })
 
 
@@ -242,11 +243,11 @@ useEffect(() => {
     // move basketball
 
     tl.to(basketballRef.current,{
-      x: isMobileRef.current ? '20%' : '40%',   
-      y: isMobileRef.current ? '5' : '10%',
+      x: isMobileRef.current ? '20%' : '35%',   
+      y: '5%',
       rotate:'-22deg',
       scale: scaleRef.current,
-      duration:2,
+      duration:1.5,
       ease:"power1.inOut"
     })
 
@@ -257,13 +258,18 @@ useEffect(() => {
 
     tl.to(basketballRef.current,{
       opacity:0,
-      duration:1.5,
+      duration:1.75,
       ease:"power1.out",
     })
+
+    tl.to(videoRef.current,{
+        opacity:1,
+        duration:2,
+    }, "<-=0.3")
   
   tl.to(videoRef.current,{
     visibility:"visible",
-    opacity:1,
+  
     onStart:()=>{
       if (!videoRef.current) return; 
       videoRef.current.pause();
@@ -315,7 +321,7 @@ useEffect(() => {
     }, { dependencies: [IsMobile], revertOnUpdate: true })
   return (
 
-<div ref={containerRef} className='w-screen h-screen bg-white flex-center relative overflow-visible p-3'>
+<div ref={containerRef} className='w-screen h-screen bg-white flex-center relative overflow-visible p-5'>
   <div className='relative w-full h-[100vh]  overflow-hidden flex-center'>
   <div ref={boxArrowRef} className='  w-[750px] h-[750px]' style={{ zoom: 1 }}>
       <img ref={basketballRef}  className={`abs-center  block`} src="Excel-bas.png" alt="" />
@@ -336,8 +342,8 @@ useEffect(() => {
             strokeLinejoin="round"
             />
             </svg>
-            <h1 className={`title title-1 absolute top-5 ${IsMobile ? '-left-30' : '-left-50'} text-4xl font-extrabold w-60`}>Deep Channels</h1>
-             <p className={`details-1 absolute top-15 ${IsMobile ? '-left-30' : '-left-50'} text-xl text-gray-500 w-60`} >
+            <h1 className={`title title-1 absolute top-5 ${IsMobile ? '-left-30 w-50' : '-left-50 w-60'}  text-2xl md:text-3xl lg:text-4xl  font-extrabold `}>Deep Channels</h1>
+             <p className={`details-1 absolute top-15 ${IsMobile ? '-left-30 w-50' : '-left-50 w-60'} text-base md:text-lg lg:text-xl text-gray-500 `} >
               Deep black seams between panels , improving passing and dribbling.
             </p>
 
@@ -357,9 +363,9 @@ useEffect(() => {
             />
              
             </svg>
-            <h1 className={`title title-2 absolute top-8 ${IsMobile ? '-right-30' : '-right-50'} text-4xl font-extrabold w-65`}>Pebbled Surface</h1>
+            <h1 className={`title title-2 absolute top-8 ${IsMobile ? '-right-30 w-50' : '-right-50 w-65'} text-2xl md:text-3xl lg:text-4xl  font-extrabold `}>Pebbled Surface</h1>
 
-             <p className={`details-2 absolute top-19 ${IsMobile ? '-right-30' : '-right-50'}  text-xl text-gray-500 w-65`}>
+             <p className={`details-2 absolute top-19 ${IsMobile ? '-right-30 w-50' : '-right-50 w-65'} text-base md:text-lg lg:text-xl  text-gray-500 `}>
               Fine raised bumps enhance grip and ball control.
             </p>
 
@@ -382,9 +388,9 @@ useEffect(() => {
             />
            
         </svg>
-         <h1 className={`title title-3 absolute bottom-30 ${IsMobile ? '-right-30' : '-right-50' }  text-4xl font-extrabold w-65`}> Butyl Bladder</h1>
+         <h1 className={`title title-3 absolute bottom-30 ${IsMobile ? '-right-30 w-50' : '-right-50 w-65'  } text-2xl md:text-3xl lg:text-4xl font-extrabold `}> Butyl Bladder</h1>
 
-             <p className={`details-3 absolute bottom-15 ${IsMobile ? '-right-30' : '-right-50'} text-xl text-gray-500 w-65` }>
+             <p className={`details-3 absolute bottom-15 ${IsMobile ? '-right-30 w-50' : '-right-50 w-65'} text-base md:text-lg lg:text-xl  text-gray-500 ` }>
               Inner butyl rubber bladder retains air pressure longer.
             </p>
        
@@ -407,9 +413,9 @@ useEffect(() => {
    
             </svg>
 
-            <h1 className={`title title-4 absolute bottom-30 ${IsMobile ? '-left-30' : '-left-50' } text-4xl font-extrabold w-65`}>Nylon Wounds</h1>
+            <h1 className={`title title-4 absolute bottom-30 ${IsMobile ? '-left-30 w-50' : '-left-50 w-65' } text-2xl md:text-3xl lg:text-4xl  font-extrabold `}>Nylon Wounds</h1>
 
-             <p className={`details-4 absolute bottom-8 ${IsMobile ? '-left-30' : '-left-50' } text-xl text-gray-500 w-65`} >
+             <p className={`details-4 absolute bottom-8 ${IsMobile ? '-left-30 w-50' : '-left-50 w-65' } text-base md:text-lg lg:text-xl  text-gray-500 `} >
               Multi-layer nylon winding maintains a perfect round shape.
             </p>
      
