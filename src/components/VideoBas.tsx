@@ -83,6 +83,13 @@ useEffect(() => {
       }
     })
 
+    tl.set(basketballRef.current,{
+      x: window.innerWidth / 2,
+      y: window.innerHeight / 2,
+      xPercent: -50,  // เลื่อนซ้าย 50% ของ element เอง
+      yPercent: -50,
+    })
+
     tl.set(videoRef.current,{
       // visibility:"hidden",
       opacity:0,
