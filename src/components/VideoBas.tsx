@@ -317,11 +317,11 @@ useEffect(() => {
 
 <div ref={containerRef} className='w-screen h-screen bg-white flex-center relative overflow-visible p-3'>
   <div className='relative w-full h-[100vh]  overflow-hidden flex-center'>
-  <div ref={boxArrowRef} className='border-2  w-[750px] h-[750px]' style={{ zoom: 1 }}>
+  <div ref={boxArrowRef} className='  w-[750px] h-[750px]' style={{ zoom: 1 }}>
       <img ref={basketballRef}  className={`abs-center  block`} src="Excel-bas.png" alt="" />
  
          {/* TOP */}
-            <svg viewBox={`${IsMobile ? '10 -10'  : '15 -15'} 150 150`}
+            <svg viewBox={`${IsMobile ? '5 -10'  : '15 -15'} 150 150`}
             className=' abs-center w-screen h-full'
             width="100%"
             height="100%"
@@ -341,7 +341,7 @@ useEffect(() => {
               Deep black seams between panels , improving passing and dribbling.
             </p>
 
-            <svg viewBox={`${IsMobile ? '-155 -5' : '-175 -15'} 150 150`}
+            <svg viewBox={`${IsMobile ? '-165 -5' : '-175 -15'} 150 150`}
             className='abs-center  w-screen h-full'
             width="100%"
             height="100%"
@@ -357,16 +357,16 @@ useEffect(() => {
             />
              
             </svg>
-            <h1 className={`title title-2 absolute top-8 ${IsMobile ? '-right-40' : '-right-50'} text-4xl font-extrabold w-65`}>Pebbled Surface</h1>
+            <h1 className={`title title-2 absolute top-8 ${IsMobile ? '-right-30' : '-right-50'} text-4xl font-extrabold w-65`}>Pebbled Surface</h1>
 
-             <p className={`details-2 absolute top-19 ${IsMobile ? '-right-40' : '-right-50'}  text-xl text-gray-500 w-65`}>
+             <p className={`details-2 absolute top-19 ${IsMobile ? '-right-30' : '-right-50'}  text-xl text-gray-500 w-65`}>
               Fine raised bumps enhance grip and ball control.
             </p>
 
 
 
         {/* BOTTOM */}
-           <svg viewBox={`${IsMobile ? '-150 -140' : '-165 -130'} 150 150`}
+           <svg viewBox={`${IsMobile ? '-160 -140' : '-165 -130'} 150 150`}
             className='abs-center  w-screen h-full'
             width="100%"
             height="100%"
@@ -389,7 +389,7 @@ useEffect(() => {
             </p>
        
 
-            <svg viewBox={`${IsMobile ? '-5 -140 ' : '20 -125'} 150 150`}
+            <svg viewBox={`${IsMobile ? '10 -140 ' : '20 -125'} 150 150`}
             className='abs-center  w-screen h-full'
             width="100%"
             height="100%"
