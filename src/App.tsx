@@ -92,6 +92,10 @@ function App() {
      const handleResize = () => {
       ScrollTrigger.refresh(); // คำนวณ resize
     };
+    if (!sessionStorage.getItem('refreshed')) {
+          sessionStorage.setItem('refreshed', 'true');
+          window.location.reload();
+    }
 
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
