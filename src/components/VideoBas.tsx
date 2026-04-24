@@ -338,7 +338,7 @@ useEffect(() => {
             </svg>
             <h1 className={`title title-1 absolute top-5 ${IsMobile ? 'right-110' : 'right-150'} text-4xl font-extrabold w-60`}>Deep Channels</h1>
              <p className={`details-1 absolute top-15 ${IsMobile ? 'right-110' : 'right-150'} text-xl text-gray-500 w-60`} >
-              Deep black seams between panels , improving passing and dribbling.
+              Deep black seams between panels , improving passing and dribbling.wwwdwdwdadawadada
             </p>
 
             <svg viewBox={`${IsMobile ? '-155 -5' : '-155 -15'} 150 150`}
