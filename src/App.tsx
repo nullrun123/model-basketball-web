@@ -34,7 +34,7 @@ function App() {
   const isMoblie = useMediaQuery({maxWidth:768})
   const basRef = useRef(null);
   const containerRef = useRef(null);
-  const [scaleBas, setScaleBas] = useState<Number>(1.8);
+  const [scaleBas, setScaleBas] = useState<number>(1.8);
 
 
   useGSAP(()=>{
@@ -116,10 +116,6 @@ function App() {
       <VideoBas/>
       <SignatureBlock/>
       <Contact/>
-    
-    
-  
-   
    </ReactLenis>
   )
 }
