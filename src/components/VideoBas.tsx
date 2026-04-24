@@ -12,7 +12,7 @@ function VideoBas() {
   const boxArrowRef = useRef<HTMLDivElement>(null);
   const basketballRef = useRef<HTMLImageElement>(null);
   const [IsMobile, setIsMobile] = useState(false);
-  
+  const isMobileRef = useRef(false); 
 
   // responsive func
   const getResponsiveScale = ()=>{
@@ -53,6 +53,7 @@ useEffect(() => {
   }, (context) => {
     const { isMobile } = context.conditions as { isMobile: boolean };
     setIsMobile(isMobile);
+    isMobileRef.current = isMobile;
       gsap.set(boxArrowRef.current,{
       scale: isMobile ? 0.6 : 0.9,
     })
@@ -241,8 +242,8 @@ useEffect(() => {
     // move basketball
 
     tl.to(basketballRef.current,{
-      x: IsMobile ? '20%' : '40%',   // ปรับ x ตามจอ
-      y: IsMobile ? '5%' : '10%',  
+      x: isMobileRef.current ? '20%' : '40%',   
+      y: isMobileRef.current ? '5' : '10%',
       rotate:'-22deg',
       scale: scaleRef.current,
       duration:2,
@@ -311,19 +312,18 @@ useEffect(() => {
         split3.revert();
         split4.revert();
       };
-    })
+    }, { dependencies: [IsMobile], revertOnUpdate: true })
   return (
 
 <div ref={containerRef} className='w-screen h-screen bg-white flex-center relative overflow-visible p-3'>
-  <div className='relative w-[90vw] h-[100vh]  overflow-hidden flex-center'>
-  <div ref={boxArrowRef} className='abs-center w-[750px] h-[750px] scale-80'>
-      <img ref={basketballRef}  className={`abs-center ${IsMobile ? 'max-w-[500px]' : 'max-w-[700px]'}  block`} src="Excel-bas.png" alt="" />
+  <div className='relative w-full h-[100vh]  overflow-hidden flex-center'>
+  <div ref={boxArrowRef} className='border-2  w-[750px] h-[750px]' style={{ zoom: 1 }}>
+      <img ref={basketballRef}  className={`abs-center  block`} src="Excel-bas.png" alt="" />
  
-
          {/* TOP */}
-            <svg viewBox={`${IsMobile ? '-5 -10'  : '15 -15'} 150 150`}
+            <svg viewBox={`${IsMobile ? '10 -10'  : '15 -15'} 150 150`}
             className=' abs-center w-screen h-full'
-            width="100%" 
+            width="100%"
             height="100%"
             preserveAspectRatio="xMidYMid meet">
             <path
@@ -336,14 +336,14 @@ useEffect(() => {
             strokeLinejoin="round"
             />
             </svg>
-            <h1 className={`title title-1 absolute top-5 ${IsMobile ? 'right-110' : '-left-50'} text-4xl font-extrabold w-60`}>Deep Channels</h1>
-             <p className={`details-1 absolute top-15 ${IsMobile ? 'right-110' : '-left-50'} text-xl text-gray-500 w-60`} >
+            <h1 className={`title title-1 absolute top-5 ${IsMobile ? '-left-30' : '-left-50'} text-4xl font-extrabold w-60`}>Deep Channels</h1>
+             <p className={`details-1 absolute top-15 ${IsMobile ? '-left-30' : '-left-50'} text-xl text-gray-500 w-60`} >
               Deep black seams between panels , improving passing and dribbling.
             </p>
 
             <svg viewBox={`${IsMobile ? '-155 -5' : '-175 -15'} 150 150`}
             className='abs-center  w-screen h-full'
-            width="100%" 
+            width="100%"
             height="100%"
             preserveAspectRatio="xMidYMid meet">
             <path
@@ -356,10 +356,10 @@ useEffect(() => {
             strokeLinejoin="round"
             />
              
-            </svg> 
-            <h1 className={`title title-2 absolute top-8 ${IsMobile ? 'left-120' : '-right-50'} text-4xl font-extrabold w-65`}>Pebbled Surface</h1>
+            </svg>
+            <h1 className={`title title-2 absolute top-8 ${IsMobile ? '-right-40' : '-right-50'} text-4xl font-extrabold w-65`}>Pebbled Surface</h1>
 
-             <p className={`details-2 absolute top-19 ${IsMobile ? 'left-120' : '-right-50'}  text-xl text-gray-500 w-65`}>
+             <p className={`details-2 absolute top-19 ${IsMobile ? '-right-40' : '-right-50'}  text-xl text-gray-500 w-65`}>
               Fine raised bumps enhance grip and ball control.
             </p>
 
@@ -368,7 +368,7 @@ useEffect(() => {
         {/* BOTTOM */}
            <svg viewBox={`${IsMobile ? '-150 -140' : '-165 -130'} 150 150`}
             className='abs-center  w-screen h-full'
-            width="100%" 
+            width="100%"
             height="100%"
             preserveAspectRatio="xMidYMid meet">
             <path
@@ -382,18 +382,18 @@ useEffect(() => {
             />
            
         </svg>
-         <h1 className={`title title-3 absolute bottom-30 ${IsMobile ? 'left-120' : '-right-50' }  text-4xl font-extrabold w-65`}> Butyl Bladder</h1>
+         <h1 className={`title title-3 absolute bottom-30 ${IsMobile ? '-right-30' : '-right-50' }  text-4xl font-extrabold w-65`}> Butyl Bladder</h1>
 
-             <p className={`details-3 absolute bottom-15 ${IsMobile ? 'left-120' : '-right-50'} text-xl text-gray-500 w-65` }>
+             <p className={`details-3 absolute bottom-15 ${IsMobile ? '-right-30' : '-right-50'} text-xl text-gray-500 w-65` }>
               Inner butyl rubber bladder retains air pressure longer.
             </p>
-        
+       
 
             <svg viewBox={`${IsMobile ? '-5 -140 ' : '20 -125'} 150 150`}
             className='abs-center  w-screen h-full'
-            width="100%" 
+            width="100%"
             height="100%"
-            
+           
             preserveAspectRatio="xMidYMid meet">
             <path
             className='path-arrow arrow-4'
@@ -407,12 +407,14 @@ useEffect(() => {
    
             </svg>
 
-            <h1 className={`title title-4 absolute bottom-30 ${IsMobile ? 'right-110' : '-left-50' } text-4xl font-extrabold w-65`}>Nylon Wounds</h1>
+            <h1 className={`title title-4 absolute bottom-30 ${IsMobile ? '-left-30' : '-left-50' } text-4xl font-extrabold w-65`}>Nylon Wounds</h1>
 
-             <p className={`details-4 absolute bottom-8 ${IsMobile ? 'right-112' : '-left-50' } text-xl text-gray-500 w-65`} >
+             <p className={`details-4 absolute bottom-8 ${IsMobile ? '-left-30' : '-left-50' } text-xl text-gray-500 w-65`} >
               Multi-layer nylon winding maintains a perfect round shape.
             </p>
-      
+     
+
+        
     </div>
   </div>
   <div  className='abs-center  h-auto w-[75%] z-10'>

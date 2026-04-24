@@ -104,7 +104,7 @@ function App() {
    
   return (
    <ReactLenis root className='flex flex-col h-full w-full' >
-      <div ref={containerRef} className='body main-box relative h-full w-full '>
+      {/* <div ref={containerRef} className='body main-box relative h-full w-full '>
        <Hero/>
     <div ref={basRef}  className='absolute z-22 top-0 left-0 h-screen w-screen flex-center'>
       <Canvas >
@@ -116,7 +116,7 @@ function App() {
     <About/>
     </div>
 
-      <History/>
+      <History/> */}
       <VideoBas/>
       <SignatureBlock/>
       <Contact/>
