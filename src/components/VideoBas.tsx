@@ -38,6 +38,16 @@ useEffect(() => {
     boxArrowRef.current.querySelectorAll(".path-arrow")
   );
 
+   const el = basketballRef.current
+  if (!el) return
+
+  gsap.set(el, {
+    xPercent: -50,
+    yPercent: -50,
+    left: '50%',
+    top: '50%',
+  })
+
   arrows.forEach((path) => {
     const len = path.getTotalLength(); 
     gsap.set(path, { 
@@ -65,6 +75,7 @@ useEffect(() => {
   window.addEventListener('resize', handleResize);
   return () => window.removeEventListener('resize', handleResize);
 
+  
 }, [IsMobile]);
 
 
@@ -83,12 +94,7 @@ useEffect(() => {
       }
     })
 
-    tl.set(basketballRef.current,{
-      x: window.innerWidth / 2,
-      y: window.innerHeight / 2,
-      xPercent: -50,  // เลื่อนซ้าย 50% ของ element เอง
-      yPercent: -50,
-    })
+
 
     tl.set(videoRef.current,{
       // visibility:"hidden",
@@ -329,10 +335,9 @@ useEffect(() => {
   return (
 
 <div ref={containerRef} className='w-screen h-screen bg-white flex-center relative overflow-visible p-5'>
-  <div className='relative w-full h-[100vh]  overflow-hidden flex-center'>
-  <div ref={boxArrowRef} className='  w-[750px] h-[750px]' style={{ zoom: 1 }}>
-      <img ref={basketballRef}  className={`abs-center  block`} src="Excel-bas.png" alt="" />
- 
+  <div className='w-full h-[100vh] overflow-hidden flex-center'>
+    <div ref={boxArrowRef} className='relative w-[750px] h-[750px]'>
+      <img ref={basketballRef} className='absolute block' src="Excel-bas.png" alt="" />
          {/* TOP */}
             <svg viewBox={`${IsMobile ? '5 -10'  : '15 -15'} 150 150`}
             className=' abs-center w-screen h-full'
