@@ -312,7 +312,7 @@ useEffect(() => {
  
 
          {/* TOP */}
-            <svg viewBox="-20 -15 150 150"
+            <svg viewBox={`${IsMobile ? '-5 -10'  : '-20 -15'} 150 150`}
             className=' abs-center w-screen h-full'
             width="100%" 
             height="100%"
@@ -332,7 +332,7 @@ useEffect(() => {
               Deep black seams between panels , improving passing and dribbling.
             </p>
 
-            <svg viewBox="-145 -15 150 150"
+            <svg viewBox={`${IsMobile ? '-155 -5' : '-145 -15'} 150 150`}
             className='abs-center  w-screen h-full'
             width="100%" 
             height="100%"
@@ -357,7 +357,7 @@ useEffect(() => {
 
 
         {/* BOTTOM */}
-           <svg viewBox="-135 -130 150 150"
+           <svg viewBox={`${IsMobile ? '-150 -140' : '-135 -130'} 150 150`}
             className='abs-center  w-screen h-full'
             width="100%" 
             height="100%"
@@ -380,7 +380,7 @@ useEffect(() => {
             </p>
         
 
-            <svg viewBox="-12 -125 150 150"
+            <svg viewBox={`${IsMobile ? '-5 -140 ' : '-12 -125'} 150 150`}
             className='abs-center  w-screen h-full'
             width="100%" 
             height="100%"
