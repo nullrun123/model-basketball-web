@@ -12,7 +12,7 @@ function VideoBas() {
   const boxArrowRef = useRef<HTMLDivElement>(null);
   const basketballRef = useRef<HTMLImageElement>(null);
   const [IsMobile, setIsMobile] = useState(false);
-
+  
 
   // responsive func
   const getResponsiveScale = ()=>{
@@ -29,6 +29,9 @@ function VideoBas() {
     return Math.min(Math.max(scale,minScale),maxScale);
 
   }
+
+  const scaleRef = useRef(getResponsiveScale());
+
 useEffect(() => {
   if (!boxArrowRef.current) return;
 
@@ -56,6 +59,12 @@ useEffect(() => {
     })
   }
   )
+    const handleResize = () => {
+    scaleRef.current = getResponsiveScale();
+  };
+  window.addEventListener('resize', handleResize);
+  return () => window.removeEventListener('resize', handleResize);
+
 }, [IsMobile]);
 
 
@@ -236,7 +245,7 @@ useEffect(() => {
       x: IsMobile ? '20%' : '40%',   // ปรับ x ตามจอ
       y: IsMobile ? '5%' : '10%',  
       rotate:'-22deg',
-      scale: getResponsiveScale(),
+      scale: scaleRef.current,
       duration:2,
       ease:"power1.inOut"
     })
@@ -309,7 +318,7 @@ useEffect(() => {
 <div ref={containerRef} className='w-screen h-screen bg-white flex-center relative overflow-visible p-3'>
   <div className='relative w-[90vw] h-[100vh]  overflow-hidden flex-center'>
   <div ref={boxArrowRef} className='abs-center w-[800px] h-[800px] scale-90'>
-      <img ref={basketballRef}  className='abs-center w-[450px] h-auto block' src="Excel-bas.png" alt="" />
+      <img ref={basketballRef}  className='abs-center w-[80vmin] h-[80vmin]  block' src="Excel-bas.png" alt="" />
  
 
          {/* TOP */}
