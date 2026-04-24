@@ -1,10 +1,9 @@
-import { Environment, OrbitControls, PerspectiveCamera } from '@react-three/drei'
-import React, { useRef, useState } from 'react'
+import {  OrbitControls, PerspectiveCamera } from '@react-three/drei'
+import { useRef } from 'react'
 import { Model } from './model'
-import { useFrame } from '@react-three/fiber';
 import StudioLight from './StudioLight';
 
-function ModelSet({scaleProps}:{scaleProps:Number}) {
+function ModelSet({scaleProps}:{scaleProps:number}) {
     const cameraRef = useRef(null);
   return (
     <>

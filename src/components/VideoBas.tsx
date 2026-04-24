@@ -7,12 +7,10 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger,SplitText);
 function VideoBas() {
-
-  // const isMobile = useMediaQuery({maxWidth:768})
-  const containerRef = useRef(null);
-  const boxArrowRef = useRef(null);
-  const videoRef = useRef(null);
-  const basketballRef = useRef(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const boxArrowRef = useRef<HTMLDivElement>(null);
+  const basketballRef = useRef<HTMLImageElement>(null);
   const [IsMobile, setIsMobile] = useState(false);
 
 
@@ -257,11 +255,13 @@ useEffect(() => {
     visibility:"visible",
     opacity:1,
     onStart:()=>{
+      if (!videoRef.current) return; 
       videoRef.current.pause();
       videoRef.current.currentTime = 0;
     },
      onComplete: () => {
-        videoRef.current.play();
+      if (!videoRef.current) return; 
+      videoRef.current?.play();
   },
     duration:0.4,
 }, "<-=0.3")

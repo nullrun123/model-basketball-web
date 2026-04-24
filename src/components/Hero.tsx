@@ -1,6 +1,6 @@
-import React from 'react'
+
 import gsap from 'gsap';
-import { ScrollTrigger , SplitText} from 'gsap/all';
+import {  SplitText} from 'gsap/all';
 import { useGSAP } from "@gsap/react";
 function Hero() {
 
@@ -37,8 +37,8 @@ function Hero() {
     <>  
     <div className='inner-container h-[100vh] flex-center bg-bg'>
         <div className='t absolute top-30 text-center text-white space-y-2'> 
-            <h1 className='text-5xl md:text-8xl '>SPALDING</h1>
-            <p className='text-lg md:text-2xl'>Basketball all time</p>
+            <h1 className='text-6xl md:text-8xl font-bold space-x-5'>SPALDING</h1>
+            <p className='text-lg md:text-2xl tracking-widest'>Basketball all time</p>
         </div>
     </div>
     </>

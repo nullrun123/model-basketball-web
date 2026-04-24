@@ -8,10 +8,10 @@ gsap.registerPlugin(ScrollTrigger,SplitText)
 interface TextProps {
     children: ReactNode,
     animateOnscroll?:boolean,
-    delay?:Number,
+    delay?:number,
     blockColor?:string,
-    stagger?:Number,
-    duration?:Number,
+    stagger?:number,
+    duration?:number,
 }
 function TextAnima({children,
     animateOnscroll=true  ,  // เล่นแอนิเมชันเมื่อเลื่อนหน้าจอ (default: true)
@@ -21,7 +21,7 @@ function TextAnima({children,
     duration=0.75  ,        // ความยาวของแอนิเมชัน (วินาที)
 }:TextProps) {
     const containerRef = useRef(null);        // อ้างอิงถึง container
-        const splitRefs = useRef([]);             // เก็บ split text objects
+    const splitRefs = useRef([]);             // เก็บ split text objects
     const lines = useRef([]);                 // เก็บแต่ละบรรทัด
     const blocks = useRef([]);                // เก็บแท่งปิดเผย    
     

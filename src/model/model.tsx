@@ -1,11 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react'
+import {  useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react'
 interface ModelProps {
   props?: any;
-  scale?: Number;
-  targetscale: Number;
+  scale?: number;
+  targetscale: number;
 }
 export function Model({props,scale=1.8,targetscale}:ModelProps) {
   const { nodes, materials } = useGLTF('model/basketball.glb')
