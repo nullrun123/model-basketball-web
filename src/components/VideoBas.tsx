@@ -19,13 +19,12 @@ function VideoBas() {
     const width = window.innerWidth;
 
     const minScale = 0.9;
-    const maxScale = 1.60;
+    const maxScale = 1.55;
     const minWidth = 320;
     const maxWidth = 1920;
 
     const scale = minScale + (maxScale - minScale) * ((width-minWidth)/(maxWidth-minWidth))
 
-    console.log(scale)
     return Math.min(Math.max(scale,minScale),maxScale);
 
   }
@@ -322,7 +321,7 @@ useEffect(() => {
  
 
          {/* TOP */}
-            <svg viewBox={`${IsMobile ? '-5 -10'  : '-20 -15'} 150 150`}
+            <svg viewBox={`${IsMobile ? '-5 -10'  : '-10 -15'} 150 150`}
             className=' abs-center w-screen h-full'
             width="100%" 
             height="100%"
@@ -342,7 +341,7 @@ useEffect(() => {
               Deep black seams between panels , improving passing and dribbling.
             </p>
 
-            <svg viewBox={`${IsMobile ? '-155 -5' : '-145 -15'} 150 150`}
+            <svg viewBox={`${IsMobile ? '-155 -5' : '-155 -15'} 150 150`}
             className='abs-center  w-screen h-full'
             width="100%" 
             height="100%"
@@ -367,7 +366,7 @@ useEffect(() => {
 
 
         {/* BOTTOM */}
-           <svg viewBox={`${IsMobile ? '-150 -140' : '-135 -130'} 150 150`}
+           <svg viewBox={`${IsMobile ? '-150 -140' : '-145 -130'} 150 150`}
             className='abs-center  w-screen h-full'
             width="100%" 
             height="100%"
@@ -390,7 +389,7 @@ useEffect(() => {
             </p>
         
 
-            <svg viewBox={`${IsMobile ? '-5 -140 ' : '-12 -125'} 150 150`}
+            <svg viewBox={`${IsMobile ? '-5 -140 ' : '-3 -125'} 150 150`}
             className='abs-center  w-screen h-full'
             width="100%" 
             height="100%"
