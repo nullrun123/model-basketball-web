@@ -25,7 +25,7 @@ function ModelSet({scaleProps}:{scaleProps:Number}) {
     <StudioLight/>
     {/* <Environment preset='city'/> */}
     <Model targetscale={scaleProps} props={undefined}/>
-    <axesHelper args={[500]}/>
+    {/* <axesHelper args={[500]}/> */}
     </>
   )
 }

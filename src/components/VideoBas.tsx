@@ -2,15 +2,35 @@ import React, { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap';
 import { ScrollTrigger , SplitText} from 'gsap/all';
 import { useGSAP } from "@gsap/react";
+import { useMediaQuery } from 'react-responsive';
 
 
 gsap.registerPlugin(ScrollTrigger,SplitText);
 function VideoBas() {
 
+  // const isMobile = useMediaQuery({maxWidth:768})
   const containerRef = useRef(null);
   const boxArrowRef = useRef(null);
   const videoRef = useRef(null);
   const basketballRef = useRef(null);
+
+
+  // responsive func
+  const getResponsiveScale = ()=>{
+    const width = window.innerWidth;
+
+    const minScale = 1.0;
+    const maxScale = 1.75;
+    const minWidth = 320;
+    const maxWidth = 1920;
+
+    const scale = minScale + (maxScale - minScale) * ((width-minWidth)/(maxWidth-minWidth))
+
+    console.log(scale)
+    return Math.min(Math.max(scale,minScale),maxScale);
+
+  }
+
 
  useEffect(() => {
   if (!boxArrowRef.current) return;
@@ -32,6 +52,17 @@ function VideoBas() {
 
   useGSAP(()=>{
 
+  const mm = gsap.matchMedia();
+
+  mm.add({
+    isMobile: "(max-width: 768px)",
+    isDesktop: "(min-width: 769px)",
+  }, (context) => {
+    const { isMobile } = context.conditions as { isMobile: boolean };
+
+      gsap.set(boxArrowRef.current,{
+      scale: isMobile ? 0.6 : 0.9,
+    })
     
     const tl = gsap.timeline({
       scrollTrigger:{
@@ -145,8 +176,6 @@ function VideoBas() {
 
 
     // 4
-  
-
        tl.to(".arrow-4",{
           strokeDashoffset:0,
             duration:1.5,
@@ -182,6 +211,8 @@ function VideoBas() {
     })
 
 
+    // close details
+
     tl.to([split_title1.chars,split_title2.chars,split_title3.chars,split_title4.chars],{
       opacity:0,
       duration:0.5,
@@ -201,17 +232,19 @@ function VideoBas() {
       duration:0.5,
     })
 
+    // move basketball
+
     tl.to(basketballRef.current,{
-      x:'50%',
-      y:'10%',
-      rotate:'-25deg',
-      scale:1.9,
+      x: isMobile ? '20%' : '50%',   // ปรับ x ตามจอ
+      y: isMobile ? '5%' : '10%',  
+      rotate:'-22deg',
+      scale: getResponsiveScale(),
       duration:2,
       ease:"power1.inOut"
     })
 
     tl.to({},{
-      duration:1
+      duration:3
     })
 
 
@@ -259,14 +292,15 @@ function VideoBas() {
     
 
   return () => tl.kill();
+    })
   })
   return (
 <div ref={containerRef} className='w-screen h-screen bg-white flex items-center justify-center relative overflow-visible p-8'>
   
 
-  <div className='relative w-[90vw] h-[100vh] border-4 border-black overflow-hidden'>
+  <div className='relative w-[90vw] h-[100vh]  overflow-hidden'>
  
-  <div ref={boxArrowRef} className='abs-center w-[800px] h-[800px] scale-80'>
+  <div ref={boxArrowRef} className='abs-center w-[800px] h-[800px] scale-90'>
     
       <img ref={basketballRef}  className='abs-center w-[450px] h-auto block' src="Excel-bas.png" alt="" />
  
@@ -369,8 +403,8 @@ function VideoBas() {
       
     </div>
   </div>
-  <div  className='abs-center  h-auto w-[70%] z-10'>
-    <video ref={videoRef} className='w-full h-full ' muted playsInline src="video/video-sp.mp4"></video>
+  <div  className='abs-center  h-auto w-[75%] z-10'>
+    <video ref={videoRef} className='w-full h-full rounded-xl' muted playsInline src="video/video-sp.mp4"></video>
   </div>
   
 </div>

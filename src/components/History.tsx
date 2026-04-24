@@ -11,12 +11,6 @@ function History() {
     const circleRef = useRef(null);
     useGSAP(()=>{
 
-
-    //     gsap.set(containerRef.current,{
-    //     clipPath: "circle(0% at 50% 50%)",
-
-
-    // })
         const splits: SplitText[] = [];
         document.querySelectorAll(".hist-title").forEach((el) => {
             splits.push(new SplitText(el, { type: "lines" }));

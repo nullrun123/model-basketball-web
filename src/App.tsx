@@ -47,7 +47,7 @@ function App() {
         trigger:containerRef.current,
         start:"top top",
         end: "+=70% center",
-        markers:true,
+        // markers:true,
         scrub: true,
         invalidateOnRefresh: true,
         onUpdate:(self)=>{
@@ -102,9 +102,9 @@ function App() {
    
   return (
    <ReactLenis root className='flex flex-col h-full w-full' >
-      {/* <div ref={containerRef} className='body main-box relative h-full w-full border-2 border-amber-400'>
+      <div ref={containerRef} className='body main-box relative h-full w-full '>
        <Hero/>
-    <div ref={basRef}  className='absolute  top-0 left-0 border-2 border-l-pink-200 h-screen w-screen flex-center'>
+    <div ref={basRef}  className='absolute  top-0 left-0 h-screen w-screen flex-center'>
       <Canvas >
         <Suspense fallback={<LoadPage/>}>
               <ModelSet scaleProps={scaleBas}/>
@@ -115,7 +115,7 @@ function App() {
     </div>
 
          
-      <History/> */}
+      <History/>
       <VideoBas/>
        {/* <div className='h-screen w-screen bg-blue-600'>dfsffw</div> */}
       <SignatureBlock/>

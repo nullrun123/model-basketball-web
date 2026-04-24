@@ -4,7 +4,7 @@ function About() {
   return (
     <>
     <div className='h-[100vh] = text-white flex bg-bg'>
-      <div className='w-2/4 h-screen hidden md:block border-2 border-amber-400'></div>
+      <div className='w-2/4 h-screen hidden md:block'></div>
     <div className=' md:w-2/4  flex-center flex-col p-6 gap-6  '>
       <h1 className='text-5xl lg:text-9xl uppercase font-extrabold'>The True <span className='gold'>Legend</span></h1>
         <p className='text-xl lg:text-2xl text-gray-300'>

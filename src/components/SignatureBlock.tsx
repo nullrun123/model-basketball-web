@@ -12,7 +12,7 @@ function SignatureBlock() {
         trigger:containerRef.current,
         start:"top +70%",
         end:"top",
-        markers:true,
+        // markers:true,
         scrub:2,
       }
     })
@@ -30,17 +30,18 @@ function SignatureBlock() {
     })
   })
   return (
-     <div ref={containerRef} className='w-screen h-screen bg-white border-2 border-b-emerald-600'>
+     <div ref={containerRef} className='w-screen h-screen bg-white'>
       
     <div className='w-screen h-[100%] bg-red mt-auto flex flex-col gap-50'>
-        <Marquee isLeft={true} />
+        <Marquee isLeft={true} title="• SPAIDING • #SpaldingThailand • #TrustSpalding • " goldText={<span className='gold'>One ball Infinite possibilities </span>  } />
         <div className='freshman space-y-1.5'>
            <h1 id="h1-anim1" className=' text-5xl tracking-wide md:text-7xl text-center uppercase'>Born on the court. </h1>
             <h1 id="h1-anim2" className=' text-5xl tracking-wide md:text-7xl text-center uppercase font-bold'>Built for <span>champions.</span> </h1>
         </div>
      
-        <Marquee isLeft={false} />
+        <Marquee isLeft={false} title={" | Official NBA Basketball | Precision Performance SPALDING | Play Like A Pro with "} goldText={<span className='outline-gold font-bold'> SPALDING </span>} />
     </div>
+  
     </div>
   )
 }

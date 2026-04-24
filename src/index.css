@@ -108,6 +108,10 @@ body{
   @apply font-medium text-xs;
 }
 
+@utility outline-gold{
+  @apply [text-shadow:2px_2px_0_#C9A84C,-2px_-2px_0_#C9A84C,2px_-2px_0_#C9A84C,-2px_2px_0_#C9A84C,2px_0_0_#C9A84C,0_2px_0_#C9A84C,-2px_0_0_#C9A84C,0_-2px_0_#C9A84C] text-white
+}
+
 
 /* .history img{
   width: 450px;

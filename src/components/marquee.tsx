@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap';
 import { ScrollTrigger , SplitText} from 'gsap/all';
 import { useGSAP } from "@gsap/react";
-function Marquee({isLeft}) {
+function Marquee({isLeft,title,goldText}) {
   const tickerRef = useRef<HTMLDivElement>(null);
   const animationsRef = useRef<gsap.core.Tween[]>([]);
 
@@ -42,9 +42,10 @@ function Marquee({isLeft}) {
   return (
     <div ref={tickerRef} className='scale-120 p-2 text-nowrap bg-black'
     onMouseEnter={handleOnstopMarquee} onMouseLeave={handleOnPlayMarquee}>
-        <div  className='ticker-wrap flex whitespace-nowrap text-white font-extrabold'>
-            <div className='flex ticker-text text-5xl gap-10 uppercase '>
-                •  SPAIDING • #SpaldingThailand • #TrustSpalding • <span className='gold'>One ball Infinite possibilities </span>  
+        <div  className='ticker-wrap flex whitespace-nowrap text-white font-bold'>
+            <div className='flex ticker-text text-3xl gap-2 uppercase '>
+                {title}{goldText}
+                
             </div>
         </div>
       
