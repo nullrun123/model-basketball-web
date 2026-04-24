@@ -2,15 +2,24 @@ import gsap from 'gsap';
 import { ScrollTrigger , SplitText} from 'gsap/all';
 import { useGSAP } from "@gsap/react";
 import { useRef } from 'react';
-import { contain } from 'three/src/extras/TextureUtils.js';
+import { ReactNode } from 'react';
+
 gsap.registerPlugin(ScrollTrigger,SplitText)
+interface TextProps {
+    children: ReactNode,
+    animateOnscroll?:boolean,
+    delay?:Number,
+    blockColor?:string,
+    stagger?:Number,
+    duration?:Number,
+}
 function TextAnima({children,
     animateOnscroll=true  ,  // เล่นแอนิเมชันเมื่อเลื่อนหน้าจอ (default: true)
     delay=0   ,              // ความล่าช้าก่อนเริ่มแอนิเมชัน (วินาที)
     blockColor="#000" ,        // สีของแท่งปิดเผย (default: ดำ)
     stagger=0.15 ,         // ความเว้นระหว่างแต่ละบรรทัด (วินาที)
     duration=0.75  ,        // ความยาวของแอนิเมชัน (วินาที)
-}) {
+}:TextProps) {
     const containerRef = useRef(null);        // อ้างอิงถึง container
         const splitRefs = useRef([]);             // เก็บ split text objects
     const lines = useRef([]);                 // เก็บแต่ละบรรทัด
@@ -26,7 +35,7 @@ function TextAnima({children,
 
         let element = [];
 
-        // ถ้า div มี attribute data-copy-wrapper → จะ animate ลูกทุกตัว แยกกัน
+     
         if(containerRef.current.hasAttribute("data-copy-wrapper")){
             element = Array.from(containerRef.current.children);
 

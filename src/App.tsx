@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useRef, useState } from 'react'
+import { Suspense, useEffect, useRef, useState } from 'react'
 import ReactLenis from 'lenis/react'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -35,7 +35,8 @@ function App() {
   const basRef = useRef(null);
   const containerRef = useRef(null);
   const [scaleBas, setScaleBas] = useState<Number>(1.8);
-  
+
+
   useGSAP(()=>{
     gsap.set(basRef.current, { 
     y: (isMoblie ? 140 : 280), 
@@ -66,16 +67,10 @@ function App() {
      
 
      tl.to(basRef.current,{
-      x:'-30%',
+      x:'-28%',
       y:'100%',
       duration:5,
      })
-  //     tl.to(basRef.current,{
-  //     x:'40%',
-  //     y: ()=> window.innerHeight*0.001,
-  //     duration:1,
-    
-  // })
 
  
    return () => {
@@ -86,13 +81,16 @@ function App() {
 
   
   useEffect(()=>{
+
+
       if(isMoblie){
       setScaleBas(1.15);
       }else{
         setScaleBas(1.75);
       }
+
      const handleResize = () => {
-      ScrollTrigger.refresh();  // 👈 คำนวณใหม่ทุกครั้งที่ resize
+      ScrollTrigger.refresh(); // คำนวณ resize
     };
 
     window.addEventListener('resize', handleResize);
@@ -114,10 +112,8 @@ function App() {
     <About/>
     </div>
 
-         
       <History/>
       <VideoBas/>
-       {/* <div className='h-screen w-screen bg-blue-600'>dfsffw</div> */}
       <SignatureBlock/>
       <Contact/>
     

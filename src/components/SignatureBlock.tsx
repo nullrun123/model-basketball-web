@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import { useRef } from 'react'
 import Marquee from './marquee'
 import gsap from 'gsap';
 import { ScrollTrigger , SplitText} from 'gsap/all';

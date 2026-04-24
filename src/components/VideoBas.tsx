@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap';
 import { ScrollTrigger , SplitText} from 'gsap/all';
 import { useGSAP } from "@gsap/react";
-import { useMediaQuery } from 'react-responsive';
+
 
 
 gsap.registerPlugin(ScrollTrigger,SplitText);
@@ -13,14 +13,15 @@ function VideoBas() {
   const boxArrowRef = useRef(null);
   const videoRef = useRef(null);
   const basketballRef = useRef(null);
+  const [IsMobile, setIsMobile] = useState(false);
 
 
   // responsive func
   const getResponsiveScale = ()=>{
     const width = window.innerWidth;
 
-    const minScale = 1.0;
-    const maxScale = 1.75;
+    const minScale = 0.9;
+    const maxScale = 1.60;
     const minWidth = 320;
     const maxWidth = 1920;
 
@@ -30,9 +31,7 @@ function VideoBas() {
     return Math.min(Math.max(scale,minScale),maxScale);
 
   }
-
-
- useEffect(() => {
+useEffect(() => {
   if (!boxArrowRef.current) return;
 
   const arrows = gsap.utils.toArray(
@@ -47,23 +46,23 @@ function VideoBas() {
     });
   });
 
-}, []);
-
-
-  useGSAP(()=>{
-
   const mm = gsap.matchMedia();
-
   mm.add({
     isMobile: "(max-width: 768px)",
     isDesktop: "(min-width: 769px)",
   }, (context) => {
     const { isMobile } = context.conditions as { isMobile: boolean };
-
+    setIsMobile(isMobile);
       gsap.set(boxArrowRef.current,{
       scale: isMobile ? 0.6 : 0.9,
     })
-    
+  }
+  )
+}, [IsMobile]);
+
+
+
+  useGSAP(()=>{
     const tl = gsap.timeline({
       scrollTrigger:{
         trigger:containerRef.current,
@@ -235,8 +234,8 @@ function VideoBas() {
     // move basketball
 
     tl.to(basketballRef.current,{
-      x: isMobile ? '20%' : '50%',   // ปรับ x ตามจอ
-      y: isMobile ? '5%' : '10%',  
+      x: IsMobile ? '20%' : '40%',   // ปรับ x ตามจอ
+      y: IsMobile ? '5%' : '10%',  
       rotate:'-22deg',
       scale: getResponsiveScale(),
       duration:2,
@@ -248,7 +247,7 @@ function VideoBas() {
     })
 
 
-        tl.to(basketballRef.current,{
+    tl.to(basketballRef.current,{
       opacity:0,
       duration:1.5,
       ease:"power1.out",
@@ -291,17 +290,24 @@ function VideoBas() {
     })
     
 
-  return () => tl.kill();
-    })
-  })
-  return (
-<div ref={containerRef} className='w-screen h-screen bg-white flex items-center justify-center relative overflow-visible p-8'>
   
+      return () => {
+        tl.kill();
+        split_title1.revert();
+        split_title2.revert();
+        split_title3.revert();
+        split_title4.revert();
+        split.revert();
+        split2.revert();
+        split3.revert();
+        split4.revert();
+      };
+    })
+  return (
 
-  <div className='relative w-[90vw] h-[100vh]  overflow-hidden'>
- 
+<div ref={containerRef} className='w-screen h-screen bg-white flex-center relative overflow-visible p-3'>
+  <div className='relative w-[90vw] h-[100vh]  overflow-hidden flex-center'>
   <div ref={boxArrowRef} className='abs-center w-[800px] h-[800px] scale-90'>
-    
       <img ref={basketballRef}  className='abs-center w-[450px] h-auto block' src="Excel-bas.png" alt="" />
  
 
@@ -321,13 +327,10 @@ function VideoBas() {
             strokeLinejoin="round"
             />
             </svg>
-            <h1 className='title title-1 absolute top-5 right-150 text-4xl font-extrabold w-60'>Deep Channels</h1>
-
-             <p className="details-1 absolute top-15 right-150 text-xl text-gray-500 w-60" >
+            <h1 className={`title title-1 absolute top-5 ${IsMobile ? 'right-110' : 'right-150'} text-4xl font-extrabold w-60`}>Deep Channels</h1>
+             <p className={`details-1 absolute top-15 ${IsMobile ? 'right-110' : 'right-150'} text-xl text-gray-500 w-60`} >
               Deep black seams between panels , improving passing and dribbling.
             </p>
-
-
 
             <svg viewBox="-145 -15 150 150"
             className='abs-center  w-screen h-full'
@@ -345,9 +348,9 @@ function VideoBas() {
             />
              
             </svg> 
-            <h1 className='title title-2 absolute top-8 left-150 text-4xl font-extrabold w-65'>Pebbled Surface</h1>
+            <h1 className={`title title-2 absolute top-8 ${IsMobile ? 'left-120' : 'left-145'} text-4xl font-extrabold w-65`}>Pebbled Surface</h1>
 
-             <p className="details-2 absolute top-19 left-150 text-xl text-gray-500 w-65" >
+             <p className={`details-2 absolute top-19 ${IsMobile ? 'left-120' : 'left-145'}  text-xl text-gray-500 w-65`}>
               Fine raised bumps enhance grip and ball control.
             </p>
 
@@ -370,9 +373,9 @@ function VideoBas() {
             />
            
         </svg>
-         <h1 className='title title-3 absolute bottom-30 left-155 text-4xl font-extrabold w-65'> Butyl Bladder</h1>
+         <h1 className={`title title-3 absolute bottom-30 ${IsMobile ? 'left-120' : 'left-155' }  text-4xl font-extrabold w-65`}> Butyl Bladder</h1>
 
-             <p className="details-3 absolute bottom-15 left-155 text-xl text-gray-500 w-60" >
+             <p className={`details-3 absolute bottom-15 ${IsMobile ? 'left-120' : 'left-155'} text-xl text-gray-500 w-60` }>
               Inner butyl rubber bladder retains air pressure longer.
             </p>
         
@@ -395,9 +398,9 @@ function VideoBas() {
    
             </svg>
 
-            <h1 className='title title-4 absolute bottom-30 right-140 text-4xl font-extrabold w-65'>Nylon Wounds</h1>
+            <h1 className={`title title-4 absolute bottom-30 ${IsMobile ? 'right-110' : 'right-140' } text-4xl font-extrabold w-65`}>Nylon Wounds</h1>
 
-             <p className="details-4 absolute bottom-8 right-143 text-xl text-gray-500 w-60" >
+             <p className={`details-4 absolute bottom-8 ${IsMobile ? 'right-112' : 'right-140' } text-xl text-gray-500 w-65`} >
               Multi-layer nylon winding maintains a perfect round shape.
             </p>
       

@@ -6,9 +6,6 @@ import StudioLight from './StudioLight';
 
 function ModelSet({scaleProps}:{scaleProps:Number}) {
     const cameraRef = useRef(null);
-
-    
-
   return (
     <>
     <OrbitControls ref={cameraRef} autoRotate autoRotateSpeed={1.3} enableZoom={false}/>
@@ -24,7 +21,7 @@ function ModelSet({scaleProps}:{scaleProps:Number}) {
     />
     <StudioLight/>
     {/* <Environment preset='city'/> */}
-    <Model targetscale={scaleProps} props={undefined}/>
+    <Model targetscale={scaleProps} props={undefined} />
     {/* <axesHelper args={[500]}/> */}
     </>
   )

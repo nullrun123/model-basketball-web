@@ -1,9 +1,14 @@
 
-import React, { useEffect, useRef, useState } from 'react'
+import  {  useRef } from 'react'
 import gsap from 'gsap';
-import { ScrollTrigger , SplitText} from 'gsap/all';
 import { useGSAP } from "@gsap/react";
-function Marquee({isLeft,title,goldText}) {
+
+interface MarqueeProps {
+  isLeft?: boolean;
+  title: string;
+  goldText?: any;
+}
+function Marquee({isLeft,title,goldText}:MarqueeProps) {
   const tickerRef = useRef<HTMLDivElement>(null);
   const animationsRef = useRef<gsap.core.Tween[]>([]);
 
