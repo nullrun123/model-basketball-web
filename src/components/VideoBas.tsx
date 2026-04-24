@@ -18,8 +18,8 @@ function VideoBas() {
   const getResponsiveScale = ()=>{
     const width = window.innerWidth;
 
-    const minScale = 0.9;
-    const maxScale = 1.55;
+    const minScale = 0.8;
+    const maxScale = 1.4;
     const minWidth = 320;
     const maxWidth = 1920;
 
@@ -316,12 +316,12 @@ useEffect(() => {
 
 <div ref={containerRef} className='w-screen h-screen bg-white flex-center relative overflow-visible p-3'>
   <div className='relative w-[90vw] h-[100vh]  overflow-hidden flex-center'>
-  <div ref={boxArrowRef} className='abs-center w-[800px] h-[800px] scale-90'>
-      <img ref={basketballRef}  className='abs-center w-[80vmin] h-[80vmin]  block' src="Excel-bas.png" alt="" />
+  <div ref={boxArrowRef} className='abs-center w-[750px] h-[750px] scale-80'>
+      <img ref={basketballRef}  className={`abs-center ${IsMobile ? 'max-w-[500px]' : 'max-w-[700px]'}  block`} src="Excel-bas.png" alt="" />
  
 
          {/* TOP */}
-            <svg viewBox={`${IsMobile ? '-5 -10'  : '-10 -15'} 150 150`}
+            <svg viewBox={`${IsMobile ? '-5 -10'  : '15 -15'} 150 150`}
             className=' abs-center w-screen h-full'
             width="100%" 
             height="100%"
@@ -336,12 +336,12 @@ useEffect(() => {
             strokeLinejoin="round"
             />
             </svg>
-            <h1 className={`title title-1 absolute top-5 ${IsMobile ? 'right-110' : 'right-150'} text-4xl font-extrabold w-60`}>Deep Channels</h1>
-             <p className={`details-1 absolute top-15 ${IsMobile ? 'right-110' : 'right-150'} text-xl text-gray-500 w-60`} >
-              Deep black seams between panels , improving passing and dribbling.wwwdwdwdadawadada
+            <h1 className={`title title-1 absolute top-5 ${IsMobile ? 'right-110' : '-left-50'} text-4xl font-extrabold w-60`}>Deep Channels</h1>
+             <p className={`details-1 absolute top-15 ${IsMobile ? 'right-110' : '-left-50'} text-xl text-gray-500 w-60`} >
+              Deep black seams between panels , improving passing and dribbling.
             </p>
 
-            <svg viewBox={`${IsMobile ? '-155 -5' : '-155 -15'} 150 150`}
+            <svg viewBox={`${IsMobile ? '-155 -5' : '-175 -15'} 150 150`}
             className='abs-center  w-screen h-full'
             width="100%" 
             height="100%"
@@ -357,16 +357,16 @@ useEffect(() => {
             />
              
             </svg> 
-            <h1 className={`title title-2 absolute top-8 ${IsMobile ? 'left-120' : 'left-145'} text-4xl font-extrabold w-65`}>Pebbled Surface</h1>
+            <h1 className={`title title-2 absolute top-8 ${IsMobile ? 'left-120' : '-right-50'} text-4xl font-extrabold w-65`}>Pebbled Surface</h1>
 
-             <p className={`details-2 absolute top-19 ${IsMobile ? 'left-120' : 'left-145'}  text-xl text-gray-500 w-65`}>
+             <p className={`details-2 absolute top-19 ${IsMobile ? 'left-120' : '-right-50'}  text-xl text-gray-500 w-65`}>
               Fine raised bumps enhance grip and ball control.
             </p>
 
 
 
         {/* BOTTOM */}
-           <svg viewBox={`${IsMobile ? '-150 -140' : '-145 -130'} 150 150`}
+           <svg viewBox={`${IsMobile ? '-150 -140' : '-165 -130'} 150 150`}
             className='abs-center  w-screen h-full'
             width="100%" 
             height="100%"
@@ -382,14 +382,14 @@ useEffect(() => {
             />
            
         </svg>
-         <h1 className={`title title-3 absolute bottom-30 ${IsMobile ? 'left-120' : 'left-155' }  text-4xl font-extrabold w-65`}> Butyl Bladder</h1>
+         <h1 className={`title title-3 absolute bottom-30 ${IsMobile ? 'left-120' : '-right-50' }  text-4xl font-extrabold w-65`}> Butyl Bladder</h1>
 
-             <p className={`details-3 absolute bottom-15 ${IsMobile ? 'left-120' : 'left-155'} text-xl text-gray-500 w-60` }>
+             <p className={`details-3 absolute bottom-15 ${IsMobile ? 'left-120' : '-right-50'} text-xl text-gray-500 w-65` }>
               Inner butyl rubber bladder retains air pressure longer.
             </p>
         
 
-            <svg viewBox={`${IsMobile ? '-5 -140 ' : '-3 -125'} 150 150`}
+            <svg viewBox={`${IsMobile ? '-5 -140 ' : '20 -125'} 150 150`}
             className='abs-center  w-screen h-full'
             width="100%" 
             height="100%"
@@ -407,9 +407,9 @@ useEffect(() => {
    
             </svg>
 
-            <h1 className={`title title-4 absolute bottom-30 ${IsMobile ? 'right-110' : 'right-140' } text-4xl font-extrabold w-65`}>Nylon Wounds</h1>
+            <h1 className={`title title-4 absolute bottom-30 ${IsMobile ? 'right-110' : '-left-50' } text-4xl font-extrabold w-65`}>Nylon Wounds</h1>
 
-             <p className={`details-4 absolute bottom-8 ${IsMobile ? 'right-112' : 'right-140' } text-xl text-gray-500 w-65`} >
+             <p className={`details-4 absolute bottom-8 ${IsMobile ? 'right-112' : '-left-50' } text-xl text-gray-500 w-65`} >
               Multi-layer nylon winding maintains a perfect round shape.
             </p>
       
